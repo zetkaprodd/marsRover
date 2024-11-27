@@ -1,37 +1,61 @@
 package src;
 
-import src.Direction;
+import java.util.*;
 
 public class Rover {
 	
-    private final Position position;
+    private Position position;
     private Direction direction;
     private static final int GRID_SIZE = 10;
+    private ArrayList<Position> obstacles = new ArrayList<>();
+
 
     public Rover() {
         this.position = new Position();
         this.direction = Direction.N;
+        obstacles.add(new Position(5,5));
+        obstacles.add(new Position(6,8));
+        obstacles.add(new Position(1,1));
+    }
+
+    private boolean hasObstacle(Position position) {
+        return obstacles.contains(position);
     }
 
     public void moveForward() {
-    	switch(direction) {
-            case N: position.setY((position.y + 1) % GRID_SIZE); break;
-            case S: position.setY((position.y - 1) % GRID_SIZE); break;
-            case E: position.setX((position.x + 1) % GRID_SIZE); break;
-            case W: position.setX((position.x - 1) % GRID_SIZE); break;
+        Position newPosition = new Position(position.getX(), position.getY());
+        switch (direction) {
+            case N: newPosition.setY(newPosition.y + 1); break;
+            case E: newPosition.setX(newPosition.x + 1); break;
+            case S: newPosition.setY(newPosition.y - 1); break;
+            case W: newPosition.setX(newPosition.x - 1); break;
         }
-        System.out.println("Rover position has changed. New position: " + position.toString());
+        newPosition.wrapAround(GRID_SIZE);
+        if (hasObstacle(newPosition)) {
+            System.out.println("Obstacle détecté à la position: " + newPosition + ". Déplacement annulé.");
+        } else {
+            position = newPosition;
+            System.out.println("Rover avancé à la position: " + position + " Direction: " + direction);
+        }
     }
 
     public void moveBackward() {
-    	switch(direction) {
-            case N: position.setY((position.y - 1) % GRID_SIZE); break;
-            case S: position.setY((position.y + 1) % GRID_SIZE); break;
-            case E: position.setX((position.x - 1) % GRID_SIZE); break;
-            case W: position.setX((position.x + 1) % GRID_SIZE); break;
+        Position newPosition = new Position(position.getX(), position.getY());
+        switch (direction) {
+            case N: newPosition.setY(newPosition.y - 1); break;
+            case E: newPosition.setX(newPosition.x - 1); break;
+            case S: newPosition.setY(newPosition.y + 1); break;
+            case W: newPosition.setX(newPosition.x + 1); break;
         }
-        System.out.println("Rover position has changed. New position: " + position.toString());
+        newPosition.wrapAround(GRID_SIZE);
+        if (hasObstacle(newPosition)) {
+            System.out.println("Obstacle détecté à la position: " + newPosition + ". Déplacement annulé.");
+        } else {
+            position = newPosition;
+            System.out.println("Rover reculé à la position: " + position + " Direction: " + direction);
+        }
     }
+
 
     public void turnLeft() {
     	switch(direction) {
