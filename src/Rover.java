@@ -4,14 +4,14 @@ public class Rover {
 	
     private final Position position;
     
-    private final Direction direction;
+    private Direction direction;
 
     public Rover() {
         this.position = new Position();
         this.direction = Direction.N;
     }
 
-    public void moveForward(Position position, Direction direction) {
+    public void moveForward() {
     	switch(direction) {
             case N: position.setY(position.y + 1 % 100); break;
             case S: position.setY(position.y - 1 % 100); break;
@@ -20,7 +20,7 @@ public class Rover {
         }
     }
 
-    public void moveBackward(Position position, Direction direction) {
+    public void moveBackward() {
     	switch(direction) {
             case N: position.setY(position.y - 1 % 100); break;
             case S: position.setY(position.y + 1 % 100); break;
@@ -29,7 +29,7 @@ public class Rover {
         }
     }
 
-    public void turnLeft(Direction direction) {
+    public void turnLeft() {
     	switch(direction) {
             case N: direction = Direction.W; break;
             case S: direction = Direction.E; break;
@@ -38,7 +38,7 @@ public class Rover {
         }
     }
 
-    public void turnRight(Direction direction) {
+    public void turnRight() {
     	switch(direction) {
             case N: direction = Direction.E; break;
             case S: direction = Direction.W; break;
