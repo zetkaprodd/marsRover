@@ -1,5 +1,7 @@
 package src;
 
+import src.Direction;
+
 public class Rover {
 	
     private final Position position;
@@ -18,6 +20,7 @@ public class Rover {
             case E: position.setX(position.x + 1 % 100); break;
             case W: position.setX(position.x - 1 % 100); break;
         }
+        System.out.println("Rover position has changed. New position: " + position.toString());
     }
 
     public void moveBackward() {
@@ -27,6 +30,7 @@ public class Rover {
             case E: position.setX(position.x - 1 % 100); break;
             case W: position.setX(position.x + 1 % 100); break;
         }
+        System.out.println("Rover position has changed. New position: " + position.toString());
     }
 
     public void turnLeft() {
@@ -36,6 +40,7 @@ public class Rover {
             case E: direction = Direction.N; break;
             case W: direction = Direction.S; break;
         }
+        System.out.println("Rover direction has changed. New direction: " + direction);
     }
 
     public void turnRight() {
@@ -45,6 +50,7 @@ public class Rover {
             case E: direction = Direction.S; break;
             case W: direction = Direction.N; break;
         }
+        System.out.println("Rover direction has changed. New direction: " + direction);
     }
 
     public Position getPosition() {
