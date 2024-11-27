@@ -16,11 +16,13 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Contrôle du rover :");
-        System.out.println("- f : avancer");
-        System.out.println("- b : reculer");
-        System.out.println("- l : tourner à gauche");
-        System.out.println("- r : tourner à droite");
-        System.out.println("- q : quitter");
+        System.out.println("- z : avancer");
+        System.out.println("- s : reculer");
+        System.out.println("- q : tourner à gauche");
+        System.out.println("- d : tourner à droite");
+        System.out.println("- a : afficher la position");
+        System.out.println("- e : afficher la direction");
+        System.out.println("- f : quitter");
 
         boolean running = true;
 
@@ -29,19 +31,25 @@ public class Main {
             String input = scanner.nextLine();
 
             switch (input) {
-                case "f":
+                case "z":
                     controller.executeCommand(moveForward);
                     break;
-                case "b":
+                case "s":
                     controller.executeCommand(moveBackward);
                     break;
-                case "l":
+                case "q":
                     controller.executeCommand(turnLeft);
                     break;
-                case "r":
+                case "d":
                     controller.executeCommand(turnRight);
                     break;
-                case "q":
+                case "a":
+                    System.out.println(rover.getPosition());
+                    break;
+                case "e":
+                    System.out.println(rover.getDirection());
+                    break;
+                case "f":
                     running = false;
                     System.out.println("Fin du contrôle.");
                     break;
