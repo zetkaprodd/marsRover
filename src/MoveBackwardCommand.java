@@ -2,7 +2,7 @@ package src;
 
 public class MoveBackwardCommand implements Command{
 
-	private Rover rover;
+	private final Rover rover;
 
 	public MoveBackwardCommand(Rover rover) {
 		this.rover = rover;
@@ -10,7 +10,7 @@ public class MoveBackwardCommand implements Command{
 
 	@Override
 	public void execute() {
-		rover.moveForward();
+		rover.moveBackward();
 	}
 
 }
