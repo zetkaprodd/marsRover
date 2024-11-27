@@ -46,4 +46,12 @@ public class Rover {
             case W: direction = Direction.N; break;
         }
     }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public Direction getDirection() {
+        return direction;
+    }
 }
