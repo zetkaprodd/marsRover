@@ -1,30 +1,57 @@
 package src;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
         Rover rover = new Rover();
-
         Command moveForward = new MoveForwardCommand(rover);
         Command moveBackward = new MoveBackwardCommand(rover);
         Command turnLeft = new TurnLeftCommand(rover);
         Command turnRight = new TurnRightCommand(rover);
 
+        // Invoker
         MissionController controller = new MissionController();
 
-        controller.setCommand(moveForward);
-        controller.executeCommand();
+        // Scanner pour lire les commandes depuis la console
+        Scanner scanner = new Scanner(System.in);
 
-        controller.setCommand(turnRight);
-        controller.executeCommand();
+        System.out.println("Contrôle du rover :");
+        System.out.println("- f : avancer");
+        System.out.println("- b : reculer");
+        System.out.println("- l : tourner à gauche");
+        System.out.println("- r : tourner à droite");
+        System.out.println("- q : quitter");
 
-        controller.setCommand(moveForward);
-        controller.executeCommand();
+        boolean running = true;
 
-        controller.setCommand(turnLeft);
-        controller.executeCommand();
+        while (running) {
+            System.out.print("Entrez une commande : ");
+            String input = scanner.nextLine();
 
-        controller.setCommand(moveBackward);
-        controller.executeCommand();
+            switch (input) {
+                case "f":
+                    controller.executeCommand(moveForward);
+                    break;
+                case "b":
+                    controller.executeCommand(moveBackward);
+                    break;
+                case "l":
+                    controller.executeCommand(turnLeft);
+                    break;
+                case "r":
+                    controller.executeCommand(turnRight);
+                    break;
+                case "q":
+                    running = false;
+                    System.out.println("Fin du contrôle.");
+                    break;
+                default:
+                    System.out.println("Commande inconnue. Essayez f, b, l, r ou q.");
+            }
+        }
+
+        scanner.close();
     }
 }
