@@ -2,10 +2,14 @@ package src;
 
 public class TurnRightCommand implements Command{
 
-	@Override
+	private Rover rover;
+
+	public TurnRightCommand(Rover rover) {
+		this.rover = rover;
+	}
+
 	public void execute() {
-		// TODO Auto-generated method stub
-		
+		rover.turnRight();
 	}
 
 }

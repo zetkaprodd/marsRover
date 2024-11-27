@@ -2,10 +2,15 @@ package src;
 
 public class MoveForwardCommand implements Command {
 
+	private Rover rover;
+
+	public MoveForwardCommand(Rover rover) {
+		this.rover = rover;
+	}
+
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
-		
+		rover.moveForward();
 	}
 
 }
