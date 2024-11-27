@@ -6,3 +6,4 @@ public enum Direction {
     E,
     W,
 }
+ 
