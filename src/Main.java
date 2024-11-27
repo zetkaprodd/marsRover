@@ -11,10 +11,8 @@ public class Main {
         Command turnLeft = new TurnLeftCommand(rover);
         Command turnRight = new TurnRightCommand(rover);
 
-        // Invoker
         MissionController controller = new MissionController();
 
-        // Scanner pour lire les commandes depuis la console
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Contrôle du rover :");
@@ -51,7 +49,6 @@ public class Main {
                     System.out.println("Commande inconnue. Essayez f, b, l, r ou q.");
             }
         }
-
         scanner.close();
     }
 }
