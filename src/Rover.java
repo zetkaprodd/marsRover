@@ -5,8 +5,8 @@ import src.Direction;
 public class Rover {
 	
     private final Position position;
-    
     private Direction direction;
+    private static final int GRID_SIZE = 10;
 
     public Rover() {
         this.position = new Position();
@@ -15,20 +15,20 @@ public class Rover {
 
     public void moveForward() {
     	switch(direction) {
-            case N: position.setY(position.y + 1 % 100); break;
-            case S: position.setY(position.y - 1 % 100); break;
-            case E: position.setX(position.x + 1 % 100); break;
-            case W: position.setX(position.x - 1 % 100); break;
+            case N: position.setY((position.y + 1) % GRID_SIZE); break;
+            case S: position.setY((position.y - 1) % GRID_SIZE); break;
+            case E: position.setX((position.x + 1) % GRID_SIZE); break;
+            case W: position.setX((position.x - 1) % GRID_SIZE); break;
         }
         System.out.println("Rover position has changed. New position: " + position.toString());
     }
 
     public void moveBackward() {
     	switch(direction) {
-            case N: position.setY(position.y - 1 % 100); break;
-            case S: position.setY(position.y + 1 % 100); break;
-            case E: position.setX(position.x - 1 % 100); break;
-            case W: position.setX(position.x + 1 % 100); break;
+            case N: position.setY((position.y - 1) % GRID_SIZE); break;
+            case S: position.setY((position.y + 1) % GRID_SIZE); break;
+            case E: position.setX((position.x - 1) % GRID_SIZE); break;
+            case W: position.setX((position.x + 1) % GRID_SIZE); break;
         }
         System.out.println("Rover position has changed. New position: " + position.toString());
     }
