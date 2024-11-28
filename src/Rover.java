@@ -7,7 +7,7 @@ public class Rover {
     private Position position;
     private Direction direction;
     private static final int GRID_SIZE = 10;
-    private ArrayList<Position> obstacles = new ArrayList<>();
+    private final ArrayList<Position> obstacles = new ArrayList<>();
 
 
     public Rover() {
@@ -31,7 +31,7 @@ public class Rover {
             case S: newPosition.setY(newPosition.y - 1); break;
             case W: newPosition.setX(newPosition.x - 1); break;
         }
-        newPosition.wrapAround(GRID_SIZE);
+        newPosition.wrapAround();
         if (hasObstacle(newPosition)) {
             System.out.println("Obstacle détecté à la position: " + newPosition + ". Déplacement annulé.");
         } else {
@@ -48,7 +48,7 @@ public class Rover {
             case S: newPosition.setY(newPosition.y + 1); break;
             case W: newPosition.setX(newPosition.x + 1); break;
         }
-        newPosition.wrapAround(GRID_SIZE);
+        newPosition.wrapAround();
         if (hasObstacle(newPosition)) {
             System.out.println("Obstacle détecté à la position: " + newPosition + ". Déplacement annulé.");
         } else {

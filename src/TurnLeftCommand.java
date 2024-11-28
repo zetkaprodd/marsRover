@@ -2,7 +2,7 @@ package src;
 
 public class TurnLeftCommand implements Command{
 
-	private Rover rover;
+	private final Rover rover;
 
 	public TurnLeftCommand(Rover rover) {
 		this.rover = rover;

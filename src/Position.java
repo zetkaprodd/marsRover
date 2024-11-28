@@ -22,7 +22,7 @@ public class Position {
 		this.y =y;
 	}
 
-	public void wrapAround(int gridSize) {
+	public void wrapAround() {
 		this.x = (this.x + GRID_SIZE) % GRID_SIZE;
 		this.y = (this.y + GRID_SIZE) % GRID_SIZE;
 	}
@@ -48,11 +48,8 @@ public class Position {
 		if (x != other.x) {
 			return false;
 		}
-		if (y != other.y) {
-			return false;
-		}
-		return true;
-	}
+        return y == other.y;
+    }
 
 	public int getX() {
 		return x;
