@@ -65,7 +65,7 @@ public class Rover {
             case E: direction = Direction.N; break;
             case W: direction = Direction.S; break;
         }
-        System.out.println("Rover direction has changed. New direction: " + direction);
+        System.out.println("La direction du Rover à changé. Nouvelle direction: " + direction);
     }
 
     public void turnRight() {
@@ -75,7 +75,7 @@ public class Rover {
             case E: direction = Direction.S; break;
             case W: direction = Direction.N; break;
         }
-        System.out.println("Rover direction has changed. New direction: " + direction);
+        System.out.println("La direction du Rover à changé. Nouvelle direction: " + direction);
     }
 
     public Position getPosition() {
