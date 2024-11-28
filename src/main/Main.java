@@ -1,6 +1,5 @@
 package src.main;
 
-import src.*;
 import src.command.*;
 import src.rover.Rover;
 import src.controller.MissionController;
