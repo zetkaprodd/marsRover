@@ -6,7 +6,6 @@ public class Rover {
 	
     private Position position;
     private Direction direction;
-    private static final int GRID_SIZE = 10;
     private final ArrayList<Position> obstacles = new ArrayList<>();
 
 
