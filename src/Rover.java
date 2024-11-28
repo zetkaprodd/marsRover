@@ -16,6 +16,7 @@ public class Rover {
         obstacles.add(new Position(5,5));
         obstacles.add(new Position(6,8));
         obstacles.add(new Position(1,1));
+        obstacles.add(new Position(2,6));
     }
 
     private boolean hasObstacle(Position position) {
