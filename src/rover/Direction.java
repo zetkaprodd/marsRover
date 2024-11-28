@@ -1,4 +1,4 @@
-package src;
+package src.rover;
 
 public enum Direction {
     N,

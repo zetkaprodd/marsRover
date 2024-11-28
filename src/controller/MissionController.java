@@ -1,6 +1,8 @@
-package src;
+package src.controller;
 
-class MissionController {
+import src.command.Command;
+
+public class MissionController {
     private Command command;
 
     public void setCommand(Command command) {

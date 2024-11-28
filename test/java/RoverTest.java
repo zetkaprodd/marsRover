@@ -5,9 +5,9 @@ import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-import src.Direction;
-import src.Position;
-import src.Rover;
+import src.rover.Direction;
+import src.rover.Position;
+import src.rover.Rover;
 
 public class RoverTest {
 
